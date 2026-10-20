@@ -1,0 +1,283 @@
+
+.asteroid-dashboard {
+  width: 100%;
+  padding: 64px 5%;
+  color: #eaf3ff;
+  background: #070b18;
+  box-sizing: border-box;
+}
+
+.search-page-dashboard { min-height: 70vh; }
+.back-dashboard-wrap { padding: 0 5% 56px; background: #070b18; }
+
+.upcoming-section {
+  padding: 64px 5%;
+  color: #eaf3ff;
+  background: #070b18;
+  border-bottom: 1px solid #27364f;
+}
+
+.upcoming-section h2 { margin: 8px 0; font-size: clamp(28px, 4vw, 44px); }
+.upcoming-intro { max-width: 700px; margin-bottom: 28px; color: #9cabc3; line-height: 1.6; }
+.upcoming-card { margin-top: 12px; padding: 18px 20px; border: 1px solid #27364f; border-radius: 12px; background: #10182a; }
+.upcoming-card h3 { margin: 0 0 14px; color: #73ddff; }
+.upcoming-card dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; }
+.upcoming-card dt { color: #9cabc3; font-size: 12px; }
+.upcoming-card dd { margin: 6px 0 0; font-size: 13px; }
+
+.asteroid-search-form { display: grid; grid-template-columns: minmax(200px, 1fr) minmax(180px, .7fr) auto; align-items: end; gap: 14px; margin: 28px 0; }
+.asteroid-search-form .dashboard-search { margin: 0; }
+.asteroid-search-form .date-search input { color-scheme: dark; }
+.search-submit { min-height: 44px; padding: 0 18px; border: 1px solid #65d9ff; border-radius: 9px; background: #65d9ff; color: #071321; font-weight: 700; cursor: pointer; }
+.search-submit:disabled { opacity: .65; cursor: wait; }
+
+.dashboard-heading {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.dashboard-eyebrow {
+  color: #65d9ff;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.dashboard-heading h2 {
+  margin: 8px 0;
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+.dashboard-heading > p:last-child,
+.asteroid-panel > p {
+  color: #9cabc3;
+  line-height: 1.6;
+}
+
+.asteroid-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.asteroid-stat,
+.asteroid-panel {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #27364f;
+  border-radius: 14px;
+  background: #10182a;
+}
+
+.asteroid-stat span {
+  display: block;
+  color: #a9b8ce;
+  font-size: 13px;
+}
+
+.asteroid-stat strong {
+  display: block;
+  margin-top: 12px;
+  color: #73ddff;
+  font-size: clamp(19px, 2vw, 27px);
+  overflow-wrap: anywhere;
+}
+
+.dashboard-search {
+  display: grid;
+  gap: 10px;
+  max-width: 480px;
+  margin: 30px 0;
+}
+
+.dashboard-search label {
+  font-weight: 600;
+}
+
+.dashboard-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  color: #fff;
+  background: #10182a;
+  border: 1px solid #344663;
+  border-radius: 9px;
+  outline-offset: 3px;
+}
+
+.dashboard-search input:focus {
+  border-color: #65d9ff;
+}
+
+.search-result-count {
+  margin: -16px 0 22px;
+  color: #9cabc3;
+  font-size: 13px;
+}
+
+.search-results {
+  display: grid;
+  border: 1px solid #27364f;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: -10px 0 24px;
+  background: #10182a;
+}
+
+.search-result {
+  display: grid;
+  grid-template-columns: 1.1fr .8fr 1.2fr 1.1fr .7fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 18px;
+  border-bottom: 1px solid #27364f;
+  color: #a9b8ce;
+  font-size: 12px;
+}
+
+.search-result:last-child { border-bottom: 0; }
+.search-result:hover { background: #17253b; }
+.search-result strong { color: #73ddff; }
+.search-result-arrow { color: #73ddff; }
+
+.asteroid-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.asteroid-panel h3 {
+  margin-top: 0;
+}
+
+.asteroid-bar-row {
+  display: grid;
+  grid-template-columns: minmax(75px, 1fr) minmax(50px, 1.5fr) auto;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 12px;
+}
+
+.asteroid-bar-row > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.asteroid-bar-row strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.asteroid-bar-track {
+  height: 9px;
+  overflow: hidden;
+  background: #26324a;
+  border-radius: 10px;
+}
+
+.asteroid-bar {
+  height: 100%;
+  background: #52d6f7;
+  border-radius: 10px;
+}
+
+.asteroid-speed-bar {
+  background: #a78bfa;
+}
+
+.asteroid-table-panel {
+  margin-top: 20px;
+}
+
+.asteroid-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.asteroid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+.asteroid-table th,
+.asteroid-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #27364f;
+  white-space: nowrap;
+}
+
+.asteroid-table th {
+  color: #9cabc3;
+}
+
+.asteroid-table a {
+  color: #73ddff;
+  text-decoration: none;
+}
+
+.asteroid-table a:hover {
+  text-decoration: underline;
+}
+
+.asteroid-status {
+  color: #8ce4b0;
+}
+
+.asteroid-status-warning {
+  color: #ffbc72;
+}
+
+.dashboard-error {
+  padding: 14px;
+  color: #ffb4b4;
+  background: #351820;
+  border-radius: 8px;
+}
+
+.asteroid-disclaimer {
+  color: #9cabc3;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 18px;
+}
+
+@media (max-width: 800px) {
+  .upcoming-card dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .asteroid-search-form { grid-template-columns: 1fr 1fr; }
+  .search-submit { grid-column: 1 / -1; }
+  .asteroid-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .asteroid-chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-result { grid-template-columns: 1fr auto; gap: 7px 12px; }
+  .search-result span:not(.search-result-arrow) { grid-column: 1; }
+  .search-result-arrow { grid-column: 2; grid-row: 1; }
+}
+
+@media (max-width: 420px) {
+  .upcoming-section { padding: 40px 16px; }
+  .upcoming-card { padding: 14px; }
+  .asteroid-search-form { grid-template-columns: 1fr; }
+  .search-submit { grid-column: auto; }
+  .asteroid-dashboard {
+    padding: 40px 16px;
+  }
+
+  .asteroid-stats {
+    gap: 10px;
+  }
+
+  .asteroid-stat,
+  .asteroid-panel {
+    padding: 14px;
+  }
+}

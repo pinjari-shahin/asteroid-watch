@@ -1,69 +1,86 @@
-import Image from "next/image";
+"use client";
+
+import dynamic from "next/dynamic";
+import AsteroidDashboard from "./AsteroidDashboard";
+import SiteHeader from "./SiteHeader";
+
+const AsteroidScene = dynamic(() => import("./AsteroidScene"), {
+  ssr: false,
+  loading: () => <div className="scene-loading">INITIALIZING DEEP SPACE...</div>,
+});
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="space-app">
+      <SiteHeader />
+
+      <section className="hero" id="top">
+        <div className="hero-copy">
+          <p className="eyebrow"><span /> NEAR-EARTH OBJECT OBSERVATORY</p>
+          <h1>Discover the<br />worlds <em>near us.</em></h1>
+          <p className="hero-description">
+            Explore asteroids approaching Earth. Search NASA data for estimated
+            diameter, close-approach date, distance, velocity, and hazard status.
           </p>
+          <div className="hero-actions">
+            <a href="#explore" className="primary-button">Explore all asteroids ↗</a>
+            <a href="/search" className="secondary-button">Search asteroids⌕</a>
+          </div>
+          <div className="hero-stats">
+            <div><strong>LIVE</strong><span>NASA NEOWS DATA</span></div>
+            <div><strong>7 DAYS</strong><span>UPCOMING APPROACHES</span></div>
+            <div><strong>3D</strong><span>SPACE VISUALIZATION</span></div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="scene-panel" aria-label="Interactive 3D Earth and asteroid visualization">
+          <div className="scene-topline">
+            <span><i /> LIVE DATA / 001</span>
+            <span>EARTH · ASTEROID FIELD</span>
+          </div>
+          <div className="scene-canvas"><AsteroidScene /></div>
+          <div className="scene-bottomline">
+            <span>DRAG TO ROTATE</span><span>SCROLL TO ZOOM</span><span>3D VISUALIZATION</span>
+          </div>
+          <div className="scene-object-tag">
+            <span className="tag-dot" />
+            <div><strong>Near-Earth objects</strong><small>NASA NEOWS CATALOGUE</small></div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <AsteroidDashboard variant="dashboard" />
+
+      <section className="about-section" id="about">
+        <div className="about-inner">
+          <div className="about-copy">
+            <p className="eyebrow"><span /> ABOUT ASTEROIDWATCH</p>
+            <h2>Near-Earth object data from NASA.</h2>
+            <p className="about-lede">AsteroidWatch presents asteroid close-approach data in a clear, searchable format.</p>
+          </div>
+          <div className="about-facts">
+            <div><span>DATA SOURCE</span><strong>NASA NeoWs</strong></div>
+            <div><span>INCLUDES</span><strong>Date · Size · Distance · Speed</strong></div>
+          </div>
+        </div>
+        <div className="about-team">
+          <p className="about-team-label">PROJECT TEAM</p>
+          <ul aria-label="AsteroidWatch developers">
+            <li>Shahin</li>
+            <li>Vaahid</li>
+            <li>Saniya</li>
+            <li>Abrar</li>
+            <li>Chakri</li>
+          </ul>
+        </div>
+        <p className="about-footnote">Close-approach measurements describe the listed pass and do not indicate an impact prediction.</p>
+      </section>
+
+      <footer>
+        <span>✳ ASTEROIDWATCH</span>
+        <span>DATA: NASA NEOWS · VISUALIZATION: CONCEPT</span>
+        <span>© 2026 AsteroidWatch. All rights reserved.</span>
+      </footer>
+    </main>
   );
 }
